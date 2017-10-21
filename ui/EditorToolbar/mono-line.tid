@@ -1,0 +1,15 @@
+title: $:/plugins/anstosa/tw5-markdown/ui/EditorToolbar/mono-line
+list-after: $:/core/ui/EditorToolbar/mono-line
+tags: $:/tags/EditorToolbar
+icon: $:/core/images/mono-line
+caption: {{$:/language/Buttons/MonoLine/Caption}}
+description: {{$:/language/Buttons/MonoLine/Hint}}
+condition: [<targetTiddler>type[text/x-markdown]]
+shortcuts: ((mono-line))
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix="`"
+	suffix="`"
+/>

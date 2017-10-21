@@ -1,0 +1,66 @@
+title: $:/plugins/anstosa/tw5-markdown/ui/EditorToolbar/link-dropdown
+
+\define create-external-link()
+    <$action-sendmessage
+        $message="tm-edit-text-operation"
+        $param="make-external-link"
+        text={{$(searchTiddler)$}}
+    />
+    <$action-deletetiddler $tiddler=<<dropdown-state>> />
+    <$action-deletetiddler $tiddler=<<searchTiddler>> />
+    <$action-deletetiddler $tiddler=<<linkTiddler>> />
+\end
+
+\define create-internal-link()
+    <$action-sendmessage
+        $message="tm-edit-text-operation"
+        $param="make-internal-link"
+        text={{$(linkTiddler)$}}
+    />
+    <$action-deletetiddler $tiddler=<<dropdown-state>> />
+    <$action-deletetiddler $tiddler=<<searchTiddler>> />
+    <$action-deletetiddler $tiddler=<<linkTiddler>> />
+\end
+
+
+\define body(config-title)
+    ''Create link''
+
+    <$vars
+        searchTiddler="""$config-title$/search"""
+        linkTiddler="""$config-title$/link"""
+    >
+        <$edit-text
+            tiddler=<<searchTiddler>>
+            type="search"
+            tag="input"
+            focus="true"
+            placeholder="Search or paste url"
+            default=""
+        />
+
+        <$reveal tag="span" state=<<searchTiddler>> type="nomatch" text="">
+            <$button
+                actions=<<create-external-link>>
+                class="tc-btn-invisible tc-btn-inline"
+            >
+                {{$:/core/images/chevron-right}}
+            </$button>
+
+            <$button
+                class="tc-btn-invisible tc-btn-inline"
+            >
+                <$action-setfield $tiddler=<<searchTiddler>> text="" />
+                {{$:/core/images/close-button}}
+            </$button>
+        </$reveal>
+
+        <$reveal tag="div" state=<<searchTiddler>> type="nomatch" text="">
+            <$linkcatcher actions=<<create-internal-link>> to=<<linkTiddler>>>
+                {{$:/core/ui/SearchResults}}
+            </$linkcatcher>
+        </$reveal>
+    </$vars>
+\end
+
+<$macrocall $name="body" config-title=<<qualify "$:/state/Link/">> />

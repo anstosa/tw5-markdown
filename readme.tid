@@ -1,0 +1,33 @@
+title: $:/plugins/anstosa/tw5-markdown/readme
+type: text/x-markdown
+
+This a comprehensive Markdown plugin for TiddlyWiki including syntax from [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+
+## Features
+
+See the [plugin Usage page](#%24%3A%2Fplugins%2Fanstosa%2Ftw5-markdown%2Fusage)
+for a full demo of the supported features
+
+* Adds Markdown content type
+* Adds Markdown compatible editor toolbar
+* Defaults to Markdown for new tiddlers
+* Full set of rich Markdown features
+  * Headings
+  * Text: Bold, Italic, & Strikethrough
+  * External and internal links
+  * Embedded images
+  * Blockquote
+  * Lists: bulletted, numbered, & checkboxes
+  * Tables
+  * Horizontal rule
+  * Code: inline and block with syntax highlighting
+
+## Installation
+
+To add the plugin to your own TiddlyWiki5, just drag this link to the browser window:
+
+[$:/plugins/anstosa/tw5-markdown](#%24%3A%2Fplugins%2Fanstosa%2Ftw5-markdown)
+
+## Contributing
+
+[github.com/anstosa/tw5-markdown](https://github.com/anstosa/tw5-markdown)

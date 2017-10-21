@@ -1,0 +1,10 @@
+{
+    "title": "$:/plugins/anstosa/tw5-markdown",
+    "description": "Markdown",
+    "author": "Ansel Santosa",
+    "version": "1.0.0",
+    "core-version": ">=5.0.0",
+    "source": "https://github.com/anstosa/tw5-markdown",
+    "plugin-type": "plugin",
+    "list": "readme usage"
+}

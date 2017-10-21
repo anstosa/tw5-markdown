@@ -1,0 +1,22 @@
+title: $:/plugins/anstosa/tw5-markdown/style.js
+type: text/css
+tags: $:/tags/Stylesheet
+
+.tc-drop-down button.tc-btn-inline {
+    display: inline-block;
+    width: auto;
+}
+
+.c-task-list {
+    padding-left: 20px;
+}
+
+    .c-task-list__item {
+        align-items: center;
+        display: flex;
+        list-style: none;
+    }
+
+        [id^='c-task-list__item__checkbox__'] {
+            margin-right: 5px;
+        }

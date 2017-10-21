@@ -1,0 +1,36 @@
+{
+    "tiddlers": [
+        {
+            "file": "github.css",
+            "fields": {
+                "type": "text/css",
+                "title": "$:/plugins/anstosa/tw5-markdown/highlight.css",
+                "tags": "[[$:/tags/Stylesheet]]"
+            }
+        },
+        {
+            "file": "highlight.pack.min.js",
+            "fields": {
+                "type": "application/javascript",
+                "title": "$:/plugins/anstosa/tw5-markdown/highlight.js",
+                "module-type": "library"
+            }
+        },
+        {
+            "file": "markdown-it.min.js",
+            "fields": {
+                "type": "application/javascript",
+                "title": "$:/plugins/anstosa/tw5-markdown/markdown.js",
+                "module-type": "library"
+            }
+        },
+        {
+            "file": "markdown-it-checkbox.min.js",
+            "fields": {
+                "type": "application/javascript",
+                "title": "$:/plugins/anstosa/tw5-markdown/markdown-checkbox.js",
+                "module-type": "library"
+            }
+        }
+    ]
+}

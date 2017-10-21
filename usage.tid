@@ -1,0 +1,53 @@
+title: $:/plugins/anstosa/tw5-markdown/usage
+type: text/x-markdown
+
+The following serves as a quick-reference for what is supported
+
+# Heading 1
+
+## Heading 2
+
+_Italic_
+
+**Bold**
+
+~~Strikethrough~~
+
+[External Link](https://a.com)
+
+[Internal Link](#Your Page)
+
+![Image](http://placehold.it/50x50)
+
+> Blockquote
+
+* List
+* List
+* List
+
+1. One
+2. Two
+3. Three
+
+- [ ] foo
+- [X] bar
+- [ ] baz
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
+Horizontal Rule
+
+---
+
+`Inline code` with backticks
+
+```javascript
+// code block
+function yup() {
+    console.log('yup');
+}
+```
