@@ -8,6 +8,7 @@ This a comprehensive Markdown plugin for TiddlyWiki including syntax from [GitHu
 See the [plugin Usage page](#%24%3A%2Fplugins%2Fanstosa%2Ftw5-markdown%2Fusage)
 for a full demo of the supported features
 
+* **Backwards Compatible:** All your `TiddlyWiki 5` syntax still works (transclusion, macros, links, etc). Anything that the Markdown engine doesn't recognize falls back to the built-in parser.
 * Adds Markdown content type
 * Adds Markdown compatible editor toolbar
 * Defaults to Markdown for new tiddlers

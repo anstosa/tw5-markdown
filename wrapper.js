@@ -8,6 +8,8 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
 (() => {
     'use strict';
 
+    const TYPE_WIKI = 'text/vnd.tiddlywiki';
+
     let dom;
     if (typeof(window) !== 'undefined') {
         dom = new DOMParser();
@@ -35,11 +37,20 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
     });
 
     const tiddlify = (node) => {
-        if (node.nodeType === 3) {
-            return {
-                text: node.textContent,
-                type: 'text'
-            };
+        if (node.nodeType === Node.TEXT_NODE) {
+            try {
+                return {
+                    type: 'element',
+                    tag: 'p',
+                    children: new $tw.Wiki.parsers[TYPE_WIKI](TYPE_WIKI, node.textContent, {}).tree[0].children
+                };
+            }
+            catch(error) {
+                return {
+                    text: node.textContent,
+                    type: 'text'
+                }
+            }
         }
         if (node.tagName) {
             const widget = {
