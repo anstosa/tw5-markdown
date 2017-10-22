@@ -36,20 +36,36 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
         liClass: 'c-task-list__item'
     });
 
-    const tiddlify = (node) => {
+    const tiddlify = (node, forceText) => {
         if (node.nodeType === Node.TEXT_NODE) {
+            let subtree;
             try {
-                return {
-                    type: 'element',
-                    tag: 'p',
-                    children: new $tw.Wiki.parsers[TYPE_WIKI](TYPE_WIKI, node.textContent, {}).tree[0].children
-                };
+                const children = new $tw.Wiki.parsers[TYPE_WIKI](TYPE_WIKI, node.textContent, {}).tree[0].children;
+                if (children.length === 0) {
+                    subtree = null;
+                }
+                else if (children.length === 1) {
+                    subtree = children[0];
+                }
+                else {
+                    subtree = {
+                        type: 'element',
+                        tag: 'span',
+                        children: children,
+                    };
+                }
             }
             catch(error) {
+                subtree = null;
+            }
+            if (!forceText && subtree) {
+                return subtree;
+            }
+            else {
                 return {
                     text: node.textContent,
                     type: 'text'
-                }
+                };
             }
         }
         if (node.tagName) {
@@ -66,7 +82,12 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
             });
             widget.children = [];
             node.childNodes.forEach((child) => {
-                widget.children.push(tiddlify(child));
+                const isPlainText = (
+                    forceText ||
+                    widget.tag === 'code' ||
+                    widget.tag === 'a'
+                );
+                widget.children.push(tiddlify(child, isPlainText));
             });
             return widget;
         }
