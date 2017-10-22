@@ -23,7 +23,7 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
             }
             return '';
         },
-        html: false,
+        html: true,
         linkify: true,
         typographer: true,
     });
