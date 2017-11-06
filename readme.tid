@@ -26,7 +26,7 @@ See the [plugin Usage page](#%24%3A%2Fplugins%2Fanstosa%2Ftw5-markdown%2Fusage) 
 
 To add the plugin to your own TiddlyWiki5, just drag this link to the browser window:
 
-[$:/plugins/anstosa/tw5-markdown](#%24%3A%2Fplugins%2Fanstosa%2Ftw5-markdown)
+[[$:/plugins/anstosa/tw5-markdown]]
 
 ## Contributing
 
