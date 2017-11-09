@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/italic
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/italic
 caption: {{$:/language/Buttons/Italic/Caption}}
-description: {{$:/language/Buttons/Italic/Hint}}
+description: {{$:/language/Buttons/Italic/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((italic))
 

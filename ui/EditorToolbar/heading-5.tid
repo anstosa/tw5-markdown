@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/heading-5
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/heading-5
 caption: {{$:/language/Buttons/Heading5/Caption}}
-description: {{$:/language/Buttons/Heading5/Hint}}
+description: {{$:/language/Buttons/Heading5/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((heading-5))
 

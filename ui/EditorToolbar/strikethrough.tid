@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/italic
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/strikethrough
 caption: {{$:/language/Buttons/Strikethrough/Caption}}
-description: {{$:/language/Buttons/Strikethrough/Hint}}
+description: {{$:/language/Buttons/Strikethrough/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((strikethrough))
 

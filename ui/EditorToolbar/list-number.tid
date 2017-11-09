@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/list-number
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/list-number
 caption: {{$:/language/Buttons/ListNumber/Caption}}
-description: {{$:/language/Buttons/ListNumber/Hint}}
+description: {{$:/language/Buttons/ListNumber/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((list-number))
 

@@ -2,7 +2,7 @@ title: $:/plugins/anstosa/tw5-markdown/ui/EditorToolbar/link
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/link
 caption: {{$:/language/Buttons/Link/Caption}}
-description: {{$:/language/Buttons/Link/Hint}}
+description: {{$:/language/Buttons/Link/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((link))
 dropdown: $:/plugins/anstosa/tw5-markdown/ui/EditorToolbar/link-dropdown

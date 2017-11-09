@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/mono-line
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/mono-line
 caption: {{$:/language/Buttons/MonoLine/Caption}}
-description: {{$:/language/Buttons/MonoLine/Hint}}
+description: {{$:/language/Buttons/MonoLine/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((mono-line))
 

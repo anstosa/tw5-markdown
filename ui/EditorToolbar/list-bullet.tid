@@ -3,7 +3,7 @@ list-after: $:/core/ui/EditorToolbar/list-bullet
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/list-bullet
 caption: {{$:/language/Buttons/ListBullet/Caption}}
-description: {{$:/language/Buttons/ListBullet/Hint}}
+description: {{$:/language/Buttons/ListBullet/Hint}} (Markdown)
 condition: [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((list-bullet))
 
