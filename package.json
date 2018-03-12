@@ -1,13 +1,12 @@
 {
   "name": "tw5-markdown",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "private": true,
   "scripts": {
     "build": "./build.sh"
   },
   "dependencies": {
     "highlightjs": "^9.10.0",
-    "htmlparser": "^1.7.7",
     "markdown-it": "^8.4.0",
     "markdown-it-task-checkbox": "^1.0.4"
   }
