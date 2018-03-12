@@ -10,11 +10,8 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
 
     const TYPE_WIKI = 'text/vnd.tiddlywiki';
 
-    let dom;
-    if (typeof(window) !== 'undefined') {
-        dom = new DOMParser();
-    }
     const highlight = require('$:/plugins/anstosa/tw5-markdown/highlight.js');
+    const htmlparser = require('$:/plugins/anstosa/tw5-markdown/htmlparser.js');
     const MarkdownIt = require('$:/plugins/anstosa/tw5-markdown/markdown.js');
     const markdown = new MarkdownIt({
         highlight: (source, syntax) => {
@@ -37,10 +34,10 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
     });
 
     const tiddlify = (node, forceText) => {
-        if (node.nodeType === Node.TEXT_NODE) {
+        if (node.type === 'text') {
             let subtree;
             try {
-                const children = new $tw.Wiki.parsers[TYPE_WIKI](TYPE_WIKI, node.textContent, {}).tree[0].children;
+                const children = new $tw.Wiki.parsers[TYPE_WIKI](TYPE_WIKI, node.data, {}).tree[0].children;
                 if (children.length === 0) {
                     subtree = null;
                 }
@@ -63,25 +60,32 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
             }
             else {
                 return {
-                    text: node.textContent,
+                    text: node.data,
                     type: 'text'
                 };
             }
         }
-        if (node.tagName) {
+        if (node.name) {
             const widget = {
                 attributes: {},
-                tag: node.tagName.toLowerCase(),
+                tag: node.name,
                 type: 'element'
             };
-            $tw.utils.each(node.attributes, (attribute) => {
-                widget.attributes[attribute.nodeName] = {
+            $tw.utils.each(node.attribs, (value, attribute) => {
+                widget.attributes[attribute] = {
                     type: 'string',
-                    value: attribute.nodeValue
+                    value: value,
                 };
             });
+            if (widget.tag === 'a') {
+                widget.attributes.class = widget.attributes.class || {
+                    type: 'string',
+                    value: '',
+                };
+                widget.attributes.class.value += ' tc-tiddlylink';
+            }
             widget.children = [];
-            node.childNodes.forEach((child) => {
+            node.children.forEach((child) => {
                 const isPlainText = (
                     forceText ||
                     widget.tag === 'code' ||
@@ -96,8 +100,17 @@ Wraps up the markdown-it parser for use in TiddlyWiki5
     class MarkdownParser {
         constructor(type, text, options) {
             const source = markdown.render(text);
-            const tree = dom.parseFromString(source, 'text/html');
-            this.tree = tiddlify(tree.body).children;
+            const handler = new Tautologistics.NodeHtmlParser.DefaultHandler((error, dom) => {
+                if (error) { console.error(error); }
+            }, {verbose: true});
+            const parser = new Tautologistics.NodeHtmlParser.Parser(handler);
+            parser.parseComplete(source);
+            this.tree = tiddlify({
+                children: handler.dom,
+                name: 'body',
+                type: 'tag',
+            }).children;
+            console.log(this.tree);
         }
     }
 

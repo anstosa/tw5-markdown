@@ -31,6 +31,14 @@
                 "title": "$:/plugins/anstosa/tw5-markdown/markdown-checkbox.js",
                 "module-type": "library"
             }
+        },
+        {
+            "file": "htmlparser.min.js",
+            "fields": {
+                "type": "application/javascript",
+                "title": "$:/plugins/anstosa/tw5-markdown/htmlparser.js",
+                "module-type": "library"
+            }
         }
     ]
 }
